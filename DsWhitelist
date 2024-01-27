@@ -1,1 +1,26 @@
 
+local whitelistTbl = {
+}
+local HWIDtbl = {
+    '28b02d15-dfaa-4540-922e-9c257c954799', -- Reaper mumu
+    'ae6580a9-e7a0-415e-b002-aaaddaf98109', -- Reaper
+    '477bf49e-fb39-4f5a-99f4-2434ef63c37c', -- Hax PC
+    'ee41f96e-123e-4412-a18d-772d500a63dc', -- Hax PC (new)
+    '2386e50b-2888-4d0c-9cac-1feda5c364c5', -- Hax 2nd PC
+    '3eb8c2b7-3616-4fe0-9f5e-0b51ae3a0cb2', -- Hax 2nd PC (new)
+    '978700fc-4b68-424e-a962-992fc82648f9', -- Hax Phone (not working)
+    '8e907400-cd44-4360-93ec-48fdc8cfd9fb', -- Hax Phone 
+    'c3ef1705-8683-4fa1-a6c1-15c468fa95b7', -- Hax Phone (new)
+    '40cafdd1-bbc0-4c68-8058-db1bba88b0bd', -- Sonne
+    '5b25b25a-0fb8-477f-8918-9876656782be', -- Sonne 2
+    '2b2ac357-7fcc-4800-b266-f33722f10773', -- Bartholomew
+    'e67ca800-28c5-4c88-9659-367ffe92bd38', -- Hax Friend
+}
+local id = game:GetService("RbxAnalyticsService"):GetClientId()
+local plr = game.Players.LocalPlayer
+
+if table.find(HWIDtbl, id) or table.find(whitelistTbl, plr.UserId) then
+    return true
+else
+    plr:Kick('You are not whitelisted!')
+end

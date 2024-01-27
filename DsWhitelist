@@ -1,8 +1,6 @@
 local whitelistTbl = {
 }
 local HWIDtbl = {
-    '28b02d15-dfaa-4540-922e-9c257c954799', -- Reaper mumu
-    'ae6580a9-e7a0-415e-b002-aaaddaf98109', -- Reaper
     '477bf49e-fb39-4f5a-99f4-2434ef63c37c', -- Hax PC
     'ee41f96e-123e-4412-a18d-772d500a63dc', -- Hax PC (new)
     '2386e50b-2888-4d0c-9cac-1feda5c364c5', -- Hax 2nd PC

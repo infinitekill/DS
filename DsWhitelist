@@ -1,4 +1,3 @@
-
 local whitelistTbl = {
 }
 local HWIDtbl = {
@@ -22,5 +21,5 @@ local plr = game.Players.LocalPlayer
 if table.find(HWIDtbl, id) or table.find(whitelistTbl, plr.UserId) then
     return true
 else
-    plr:Kick('You are not whitelisted!')
+    return false
 end

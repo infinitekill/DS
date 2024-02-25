@@ -1,0 +1,95 @@
+local plr = game.Players.LocalPlayer
+local gui = plr.PlayerGui
+local vim = game:GetService'VirtualInputManager'
+local Trades = workspace.CurrentTrades
+local rs = workspace.GameEvents
+local args = {
+    [1] = PlayerToTradeWith,
+    [2] = {
+        [1] = OfferDino1,
+        [2] = OfferDino2,
+        [3] = OfferDino3,
+        [4] = OfferDino4,
+        [5] = OfferDino5
+    },
+    [3] = {
+        [1] = RequestDino1,
+        [2] = RequestDino2,
+        [3] = RequestDino3,
+        [4] = RequestDino4,
+        [5] = RequestDino5
+    }
+}
+local function acceptingCheck()
+    for i,v in pairs(Trades:GetChildren()) do
+        if v.Name == plr.Name and v.Creator.Value == PlayerToTradeWith then
+            return v
+        end
+    end
+end
+local function sendingCheck()
+    for i,v in pairs(Trades:GetChildren()) do
+        if v.Name == PlayerToTradeWith and v.Creator.Value == plr.Name then
+            return true
+        end
+    end
+end
+local noTrade = false
+task.wait(4)
+if Action == 'Accepting' then
+    while true do
+        if acceptingCheck() then
+            task.spawn(function()
+                while true do
+                    if not acceptingCheck() then
+                        noTrade = true
+                        break
+                    end
+                    task.wait()
+                end
+            end)
+            rs.AcceptTrade:InvokeServer(acceptingCheck())
+            while true do
+                if gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') then
+                    local x = gui.PromptGui.Prompt_Frame.YesBtn
+                    vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,true,x,1)
+                    vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,false,x,1) 
+                    break
+                end
+                task.wait()
+            end
+            while true do
+                if noTrade then
+                    noTrade = false
+                    break
+                end
+                task.wait()
+            end
+        end
+        task.wait()
+    end
+elseif Action == 'Sending' then
+    while true do
+        if not sendingCheck() then
+            rs.SendTrade:FireServer(unpack(args))
+            while true do
+                if gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') then
+                    local x = gui.PromptGui.Prompt_Frame.YesBtn
+                    vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,true,x,1)
+                    vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,false,x,1) 
+                    break
+                end
+                task.wait()
+            end
+            while true do
+                if sendingCheck() then
+                    break
+                end
+                task.wait()
+            end
+        end
+        task.wait()
+    end
+end
+            
+    

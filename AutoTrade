@@ -35,7 +35,6 @@ local function sendingCheck()
     end
 end
 local noTrade = false
-task.wait(4)
 if Action == 'Accepting' then
     while true do
         if acceptingCheck() then
@@ -51,9 +50,12 @@ if Action == 'Accepting' then
             rs.AcceptTrade:InvokeServer(acceptingCheck())
             while true do
                 if gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') then
-                    local x = gui.PromptGui.Prompt_Frame.YesBtn
-                    vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,true,x,1)
-                    vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,false,x,1) 
+                    while gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') do
+                        local x = gui.PromptGui.Prompt_Frame.YesBtn
+                        vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,true,x,1)
+                        vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,false,x,1) 
+                        task.wait()
+                    end
                     break
                 end
                 task.wait()
@@ -74,9 +76,12 @@ elseif Action == 'Sending' then
             rs.SendTrade:FireServer(unpack(args))
             while true do
                 if gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') then
-                    local x = gui.PromptGui.Prompt_Frame.YesBtn
-                    vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,true,x,1)
-                    vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,false,x,1) 
+                    while gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') do
+                        local x = gui.PromptGui.Prompt_Frame.YesBtn
+                        vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,true,x,1)
+                        vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,false,x,1) 
+                        task.wait()
+                    end
                     break
                 end
                 task.wait()

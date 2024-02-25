@@ -3,6 +3,7 @@ local gui = plr.PlayerGui
 local vim = game:GetService'VirtualInputManager'
 local Trades = workspace.CurrentTrades
 local rs = workspace.GameEvents
+local rs2 = workspace.GameFunctions
 local args = {
     [1] = PlayerToTradeWith,
     [2] = {
@@ -47,7 +48,7 @@ if Action == 'Accepting' then
                     task.wait()
                 end
             end)
-            rs.AcceptTrade:InvokeServer(acceptingCheck())
+            rs2.AcceptTrade:InvokeServer(acceptingCheck())
             while true do
                 if gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') then
                     while gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') do

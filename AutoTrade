@@ -4,23 +4,30 @@ local vim = game:GetService'VirtualInputManager'
 local Trades = workspace.CurrentTrades
 local rs = workspace.GameEvents
 local rs2 = workspace.GameFunctions
-local args = {
-    [1] = PlayerToTradeWith,
-    [2] = {
-        [1] = OfferDino1,
-        [2] = OfferDino2,
-        [3] = OfferDino3,
-        [4] = OfferDino4,
-        [5] = OfferDino5
-    },
-    [3] = {
-        [1] = RequestDino1,
-        [2] = RequestDino2,
-        [3] = RequestDino3,
-        [4] = RequestDino4,
-        [5] = RequestDino5
-    }
-}
+local inv = plr.MemoryCard.Tokens
+if RequestType then
+    RequestDinoList = {}
+    local count = 0
+    for i,v in pairs(inv:GetChildren()) do
+        if string.find(v.Name, RequestType) then
+            count += 1
+            table.insert(RequestDinoList, v.Name) 
+            if count == 5 then break end
+        end
+    end
+end
+if OfferType then
+    OfferDinoList = {}
+    local count = 0
+    for i,v in pairs(inv:GetChildren()) do
+        if string.find(v.Name, OfferType) then
+            count += 1
+            table.insert(OfferDinoList, v.Name) 
+            if count == 5 then break end
+        end
+    end
+end
+
 local function acceptingCheck()
     for i,v in pairs(Trades:GetChildren()) do
         if v.Name == plr.Name and v.Creator.Value == PlayerToTradeWith then
@@ -74,7 +81,7 @@ if Action == 'Accepting' then
 elseif Action == 'Sending' then
     while true do
         if not sendingCheck() then
-            rs.SendTrade:FireServer(unpack(args))
+            rs.SendTrade:FireServer(PlayerToTradeWith, OfferDinoList, RequestDinoList)
             while true do
                 if gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') then
                     while gui:FindFirstChild('PromptGui') and gui.PromptGui:FindFirstChild('Prompt_Frame') and gui.PromptGui.Prompt_Frame:FindFirstChild('YesBtn') do

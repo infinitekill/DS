@@ -21,6 +21,15 @@ local function sendingCheck()
     end
 end
 local noTrade = false
+task.spawn(function()
+    while true do
+        if #game.Players:GetChildren() > 2 then
+            plr:Kick('Someone joined the game!')
+            break
+        end
+        task.wait()
+    end
+end)
 if Action == 'Accepting' then
     while true do
         if acceptingCheck() then

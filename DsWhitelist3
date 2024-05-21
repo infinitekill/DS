@@ -1,8 +1,1 @@
-local hwidTbl = {
-    '21C21AE5-4BAE-4BDA-90AB-41573C6E95F2', 
-}
-local id = game:GetService("RbxAnalyticsService"):GetClientId()
-
-if table.find(hwidTbl, id) then
-    return true
-end
+nil

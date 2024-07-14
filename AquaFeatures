@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<title>Aqua/Infinite Features</title>
+	</head>
+	<body>
+		<style>
+			body {
+				background-color: rgb(54, 57, 63);
+				font-family: monospace;
+			}
+			p {
+				color: rgb(88, 101, 242);
+				font-size: 130%;
+			}
+			li {
+				color: rgb(255, 255, 255);
+				font-size: 120%;
+			}
+			li > ul > li {
+				font-size: inherit;
+			}
+		</style>
+		<p><b>Dinosaur Simulator</b></p>
+		<ul>
+			<li>Main Utility
+				<ul>
+					<li>Glass Beam Farm - teleports in VIP servers, tweens in Public server</li>
+					<li>Auto Region Bonus (Public server only) - changes current region to bonus one without teleporting your character or doing anything suspicious</li>
+					<li>Auto Switch To Bonus Dino (Public server only)</li>
+					<li>Auto Find Feather/Branch</li>
+					<li>Auto Find Odyssey Event Items (VIP server only)</li>
+					<li>Auto Elder - switches dino to the next one in your list when the current one is elder (manual growing, not instant)</li>
+					<li>Mass Convert Tokens to Dinosaurs and vice versa</li>
+                    <li>Mass Convert a single Token to SDNA</li>
+				</ul>
+			</li>
+			<li>LocalPlayer
+				<ul>
+					<li>Infinite Hunger - has a smart option that grants you semi-godmode when not in combat</li>
+					<li>Infinite Thirst</li>
+					<li>Walkspeed Changer</li>
+					<li>Jumppower Changer</li>
+					<li>Infinite Jump</li>
+					<li>Noclip</li>
+					<li>Fly</li>
+                    <li>Suicide</li>
+				</ul>
+			</li>
+			<li>Visuals
+				<ul>
+					<li>Dinosaur name and player name ESP - customizable text size, color and transparency</li>
+					<li>Dinosaur Health ESP</li>
+					<li>FOV Slider</li>
+					<li>Freecam</li>
+					<li>Remove Fog</li>
+					<li>Full Bright</li>
+					<li>Clear vision while underwater/sleeping</li>
+                    <li>Change LocalPlayer Dinos transparency (client only)</li>
+					<li>Change other peoples Dinos transparency (client only)</li>
+				</ul>
+			</li>
+			<li>Teleports
+				<ul>
+					<li>All teleports are instant in VIP servers and tweening in Public servers!</li>
+					<li>Location Teleports - regions, items and etc.</li>
+					<li>Teleport to Selected Player</li>
+					<li>Teleport to Safety - teleports to a safe spot far away from the map</li>
+					<li>Teleport back to Map</li>
+                    <li>Loop TP to safety</li>
+					<li>Key Teleport (VIP server only)</li>
+					<li>Map Teleport - teleport to different maps like gallus, trading map and etc.</li>
+				</ul>
+			</li>
+			<li>Misc
+				<ul>
+					<li>Quick Spawn selected Dinosaur</li>
+					<li>Buy selected Dinosaur</li>
+					<li>Quick check the stats of selected dinosaur</li>
+					<li>Buy all dinosaurs that you can afford</li>
+                    <li>Accurate Growth - shows 9600/9600 on elder argent</li>
+                    <li>Spawn Baseplate - spawns a small platform under you where you can place a nest and AFK</li>
+                    <li>Delete All spawned baseplates</li>
+                    <li>Chat Spy</li>
+                    <li>FPS Boost</li>
+                    <li>Send bonus dino info along with a server join link to discord webhook</li>
+				</ul>
+			</li>
+			<li>Admin Detection
+				<ul>
+					<li>Notifies when an admin joins your game with the displayname and username of the admin</li>
+					<li>Kick on Admin Detection</li>
+					<li>Menu on Admin Detection</li>
+					<li>Spawn Dino after Admin leaves</li>
+				</ul>
+			</li>
+			<li>Combat
+				<ul>
+					<li>Auto Attack (VIP server only)</li>
+					<li>Skynest (VIP server only)</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

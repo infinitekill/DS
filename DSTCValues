@@ -1,4 +1,4 @@
 return {
-    ['Albino Terror'] = 64
-    ['Megavore'] = 66
+    ['Albino Terror'] = 64,
+    ['Megavore'] = 66,
 }
